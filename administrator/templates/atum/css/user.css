@@ -73,6 +73,11 @@
  .table tbody td {
 	 color: #666;
  }
+ .cpanel-modules .card-header {
+	background: var(--light);
+	margin-bottom: 1rem;
+	padding: 0.75rem 1rem .50rem;
+}
  .cpanel-modules .list-group-item a,
  .table tbody td,
  .table tbody a:not(.badge) {
