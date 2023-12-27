@@ -6,6 +6,7 @@ This is a css override (_user.css_) for _some elements_ of the **Joomla 4 & Joom
 
 File Location:
 > Joomla 4 (below J4.1.0): **/administrator/templates/atum/css/**_user.css_
+
 > Joomla 4 & 5 : **/media/templates/administrator/atum/css/**_user.css_
 
 _**Important Note:**_ if you already have a "_user.css_" in this folder, then some css overrides may already be in place, simply add the changes at the end of the existing user.css file.
