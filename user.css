@@ -18,9 +18,10 @@
 /**
  * Development Highlighted Header
  * comment out for production use
+ */
 .header, .header .logo { background: var(--warning) !important; }
 .header-item-content.joomlaversion { color: var(--white) !important; }
- end : development css */
+ /* end : development css */
 
 html,
 body {
@@ -96,6 +97,12 @@ body {
 }
 .content .card:hover {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* stop cards within cards (mainly akeeba & Tassos) also aquiring box-shadows (issue #1) */
+.content .card .card-body .card,
+.content .card .card-body .card:hover {
+	box-shadow: none;
 }
 
 h1, h2, h3, h4, h5, h6 { font-weight: var(--font-weight-500); }
