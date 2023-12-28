@@ -19,9 +19,11 @@
  * Development Highlighted Header
  * comment out for production use
  */
+/*
 .header, .header .logo { background: var(--warning) !important; }
 .header-item-content.joomlaversion { color: var(--white) !important; }
- /* end : development css */
+*/
+/* end : development css */
 
 html,
 body {
