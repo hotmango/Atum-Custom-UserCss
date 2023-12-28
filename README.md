@@ -1,5 +1,5 @@
-# Custom CSS for Joomla4 Atum template
-A custom **user.css** for **Joomla 4 & Joomla 5 Atum Administrator template** with minor and subtle size changes reducing some of the glare and super-sized look and feel.
+# Custom CSS for Joomla 4 & 5 Atum Administrator template
+A custom **user.css** for **Joomla 4 & 5 Administrator template** with minor and subtle size changes reducing some of the glare and super-sized look and feel. Minor improvements to the native (Joomla 5) dark-mode readability.
 
 ## Where to put this file
 This is a css override (_user.css_) for _some elements_ of the **Joomla 4 & Joomla 5 Atum Administrator template**;
