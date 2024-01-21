@@ -249,6 +249,27 @@ select,
 
 .view-article.layout-edit label { font-size: 1rem; }
 
+/**
+ * grey-out unpublished list view items to differentiate between published items
+ */
+table tr td:has([data-item-task$='.publish']) +th,
+table tr td:has([data-item-task$='.publish']) +th +td,
+table tr td:has([data-item-task$='.publish']) +th +td +td,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td +td,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td +td,
+table tr td:has([data-item-task$='.publish']) +th a,
+table tr td:has([data-item-task$='.publish']) +th +td a,
+table tr td:has([data-item-task$='.publish']) +th +td +td a,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td a,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td +td a,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td a,
+table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
+{
+		color: #a2a2a2!important;
+}
+
 /*
  * extension customisations
  * some modules may need prefix classes added first
