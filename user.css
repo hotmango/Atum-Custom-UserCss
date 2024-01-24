@@ -242,6 +242,14 @@ select,
 	width: 100% !important;
 	padding: 0.5rem 3rem 0.5rem 1rem !important;
 }
+
+/* fix for issue #2, hide VirtueMart select dropdowns showing hidden elements  24-jan-2024 */
+.custom-select, .form-select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 .subform-repeatable-group input[type='text'] { width: 100%; }
 .topview .quickicon-icon i.fa-plus-circle {
 	color: var(--success);
