@@ -5,7 +5,7 @@
  * + minor J5 darkmode adjustments
  * @RussW 28-dec-2023
  */
-:root {
+ :root {
 	--font-size-default: 0.95rem;
 	--font-size-medium: 0.86rem;
 	--font-size-small: 0.76rem;
@@ -329,6 +329,16 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	.cpanel .card-header h3 {
 		color: var(--template-text-light);
 	}
+	.cpanel .module-actions button,
+	.dropdown-item {
+		color: var(--template-text-light)!important;
+	}
+	.dropdown-item:hover,
+	.dropdown-item:focus,
+	button.dropdown-item:hover,
+	button.dropdown-item:focus {
+		color: var(--dropdown-link-hover-color)!important;
+	}
 	.quick-icons {
 		background-color: #222d3d !important;
 	}
@@ -356,8 +366,10 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	.list-group-item {
 		border-bottom-color: var(--gray-600);
 	}
+	.sample-data__title,
+	.sample-data__desc,
 	.table tbody td {
-		color: var(--gray-500);
+		color: var(--gray-500)!important;
 	}
 	.form-check-input {
 		border: 1px solid var(--gray-500);
