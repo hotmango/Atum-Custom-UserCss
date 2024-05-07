@@ -1,10 +1,15 @@
 /**
- * J4 & J5 Admin Template (Atum) Customisations
+ * J5.1 Admin Template (Atum) Customisations
  * a variety of minor and subtle size changes, hilites and masking reducing
  * some of the glare & "super-sized" look & feel
  * + minor J5 darkmode adjustments
- * @RussW 28-dec-2023
+ * @RussW 7-may-2024
  */
+
+
+ /**
+  * common css elements and overrides for light & dark modes
+  */
 :root {
 	--font-size-default: 0.95rem;
 	--font-size-medium: 0.86rem;
@@ -20,7 +25,7 @@
  * Development Highlighted Header
  * comment out for production use
  */
-/*
+ /*
 .header, .header .logo { background: var(--warning) !important; }
 .header-item-content.joomlaversion { color: var(--white) !important; }
 */
@@ -31,11 +36,13 @@ body {
 	font-size: var(--font-size-default);
 	line-height: 1.4;
 }
+
 /* hide the login screen header title & sidebar */
 .view-login #header .header-title,
 .view-login #sidebar-wrapper {
 	display: none !important;
 }
+
 /* reset login box width on mobiles */
 .view-login .container-main {
 	display:block !important;
@@ -117,6 +124,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--font-weight-500); }
 	font-size: var(--font-size-heading);
 	font-weight: var(--font-weight-500);
 }
+
 .quick-icons .nav {
 	grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
 }
@@ -127,21 +135,15 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--font-weight-500); }
 	}
 }
 
-.quick-icons .quickicon {
-	--bg-color: var(--light);
-}
 .quick-icons .quickicon a .quickicon-name {
 	font-weight: var(--font-weight-default);
 	line-height: 1.1;
 	font-size: 0.8rem;
 }
 
- /* change scary danger/red notifications to less scary warning/orange */
+/* change scary danger/red notifications to less scary warning/orange */
 .quick-icons .quickicon a.danger,
 .quick-icons .quickicon a.warning {
-	--text-color: var(--warning);
-	--bg-color: #fff9ed;
-	--icon-color: #eca000;
 	--bg-color-hvr: var(--warning);
 }
 
@@ -152,7 +154,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--font-weight-500); }
 }
 .btn {
 	font-weight: var(--font-weight-default) !important;
-	/* issue #1 : inconsistant large button sizing */
+	/* issue #1 : inconsistant large button sizing, mainly akeeba */
 	font-size: var(--font-size-medium) !important;
 	line-height: 1.3 !important;
 	padding: 0.4rem 0.8rem !important;
@@ -168,15 +170,11 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--font-weight-500); }
 }
 .table thead th,
 .table tbody th {
-	color: #888;
 	font-size: 0.9rem;
 	font-weight: var(--font-weight-default);
 }
-.table tbody td {
-	color: #666;
-}
+
 .cpanel-modules .card-header {
-	background: var(--light);
 	margin-bottom: 1rem;
 	padding: 0.75rem 1rem .50rem;
 }
@@ -197,7 +195,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: var(--font-weight-500); }
 	line-height: 17px;
 }
 .table>:not(caption)>*>* {
-	border-bottom-color: #eaeaea;
+	/*border-bottom-color: #eaeaea;*/
 	padding: 0.6rem 0.75rem;
 }
 .subhead input,
@@ -278,19 +276,67 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 		color: #a2a2a2!important;
 }
 
-/*
- * extension customisations
- * some modules may need prefix classes added first
+
+/**
+ * common customisations for both light & darlmodes
+ * minor additions to improve the default extension styling
+ * - delete or comment out to use Joomla native darkmode styling
+ *
  */
 
 
+/* end common customisations */
+
+
+
 /**
- * Joomla 5 Dark Mode
- * minor additions to improve the default dark mode styling (also partial J4 support)
+ * customisations for lightmode
+ * minor additions to improve the default darkmode styling
+ * - delete or comment out to use Joomla native darkmode styling
+ *
+ */
+@media (prefers-color-scheme: light) {
+
+	.cpanel-modules .card-header {
+		background: var(--light);
+	}
+	.table>:not(caption)>*>* {
+		border-bottom-color: #eaeaea;
+	}
+	.quick-icons .quickicon {
+		--bg-color: var(--light);
+	}
+
+	/* change scary danger/red notifications to less scary warning/orange */
+	.quick-icons .quickicon a.danger,
+	.quick-icons .quickicon a.warning {
+		--text-color: var(--warning);
+		--bg-color: #f6ca71;
+	}
+	.table thead th,
+	.table tbody th {
+		color: #888;
+	}
+	.table tbody td {
+		color: #666;
+	}
+
+	/*
+	* extension customisations
+	* some extensions may need prefix classes added first, such as the body tag class
+	*/
+
+} /* end lightmode */
+
+
+/**
+ * customisations for darkmode
+ * minor additions to improve the default darkmode styling
  * - delete or comment out to use Joomla native darkmode styling
  *
  */
 @media (prefers-color-scheme: dark) {
+
 	:root {
 		--darkblue-bg: #243142;
 		--body-bg: #1b222e;
@@ -298,6 +344,7 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 		--list-group-bg: var(--card-bg);
 		--success: #00a42b;
 		--template-bg-dark-90: var(--body-bg);
+		--quickicon-linkadd-bg:#3a5274;
 	}
 
 	body.admin {
@@ -306,12 +353,7 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	a {
 		color: var(--template-bg-light);
 	}
-	.content .card,
-	.cpanel-modules .card,
-	.list-group-item,
-	.table>:not(caption)>*>* {
-		background: #222d3d !important;
-	}
+
 	.content .card,
 	.cpanel-modules .card {
 		border: 1px solid var(--gray-700);
@@ -319,6 +361,9 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	.content .card:hover,
 	.cpanel-modules .card:hover {
 		border: 1px solid var(--gray-600);
+	}
+	.content .card:hover {
+		box-shadow: 2px 2px 6px 1px #3e3e5f;
 	}
 	.cpanel-modules .card-header {
 		background: var(--template-bg-dark-70);
@@ -329,37 +374,46 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	.cpanel .card-header h3 {
 		color: var(--template-text-light);
 	}
-	.quick-icons {
-		background-color: #222d3d !important;
+
+	.quick-icons .quickicon-linkadd {
+		background: var(--quickicon-linkadd-bg);
 	}
-	.quick-icons .quickicon-group,
-	.quick-icons .quickicon-single {
-		border-color: var(--gray-700)!important;
+
+	.quick-icons .quickicon a.danger,
+	.quick-icons .quickicon a.warning {
+		--bg-color: #f9c253;
 	}
-	.quick-icons .quickicon {
-		--bg-color: var(--template-bg-dark-80) !important;
+
+	.table>:not(caption)>*>* {
+		border-bottom-color: #555;
 	}
-	.quick-icons .quickicon a:not([id^='plg_quickicon']),
-	.quick-icons .quickicon a:not([id^='plg_quickicon']) .quickicon-icon>* {
-		color: var(--gray-400);
+
+
+	/*
+	* extension customisations
+	* some extensions may need prefix classes added first, such as the body tag class
+	*/
+	.com_convertforms .container-main {
+		background: var(--main-bg) !important;
 	}
-	.quick-icons .quickicon a:hover:not([id^='plg_quickicon']),
-	.quick-icons .quickicon a:hover:not([id^='plg_quickicon']) .quickicon-icon>* {
-		color: var(--white);
+	.com_convertforms .nr-icons a,
+	.com_convertforms .nr-well-white,
+	.com_convertforms .nr-well-white .nrTable td,
+	.com_gsd .nr-main-header,
+	.com_gsd .nr-box,
+	.com_gsd .well.nr-well,
+	.com_gsd #tabTabs,
+	.com_gsd joomla-tab>div[role=tablist] {
+		background: var(--template-quickicon-bg) !important;
 	}
-	.quick-icons .quickicon-linkadd a:active,
-	.quick-icons .quickicon-linkadd a:focus,
-	.quick-icons .quickicon-linkadd a:hover {
-		background: var(--template-bg-dark-60)!important;
+	.com_convertforms .nr-icons a span,
+	.com_gsd .nr-main-header,
+	.com_gsd .nr-box,
+	.com_gsd .well.nr-well,
+	.com_gsd .well.nr-well .well-desc,
+	.com_gsd #tabTabs,
+	.com_gsd joomla-tab>div[role=tablist] {
+		color: var(--template-text-light);
 	}
-	.table>:not(caption)>*>*,
-	.list-group-item {
-		border-bottom-color: var(--gray-600);
-	}
-	.table tbody td {
-		color: var(--gray-500);
-	}
-	.form-check-input {
-		border: 1px solid var(--gray-500);
-	}
-}
+
+} /* end darkmode */
