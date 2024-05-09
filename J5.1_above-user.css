@@ -10,7 +10,7 @@
  /**
   * common css elements and overrides for light & dark modes
   */
-:root {
+  :root {
 	--font-size-default: 0.95rem;
 	--font-size-medium: 0.86rem;
 	--font-size-small: 0.76rem;
@@ -295,7 +295,9 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
  * - delete or comment out to use Joomla native darkmode styling
  *
  */
-@media (prefers-color-scheme: light) {
+ @media (prefers-color-scheme: light), (data-bs-theme:light) {
+ /*@media (prefers-color-scheme: light), (data-color-scheme="light"), (data-bs-theme="light"), (prefers-color-scheme: normal) {*/
+/*[data-bs-theme=light] {*/
 
 	.cpanel-modules .card-header {
 		background: var(--light);
@@ -336,21 +338,32 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
  *
  */
 @media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme: dark), (data-color-scheme="dark"), (data-bs-theme="dark") {*/
 
 	:root {
 		--darkblue-bg: #243142;
 		--body-bg: #1b222e;
+		--sidebar-item-bg-hvr: var(--quickicon-linkadd-bg-hvr);
 		--card-bg: #222d3d;
 		--list-group-bg: var(--card-bg);
 		--success: #00a42b;
 		--template-bg-dark-90: var(--body-bg);
-		--quickicon-linkadd-bg:#3a5274;
+		--quickicon-linkadd-bg: #3a5274;
+		--heading-color: var(--template-text-light);
 	}
 
 	body.admin {
 		background: var(--body-bg);
 	}
 	a {
+		color: var(--template-bg-light);
+	}
+	.cpanel-modules .list-group-item a:not(.btn),
+	.table tbody a:not(.badge):not(.btn):not(.dropdown-item) {
+		color: #4d90e4;
+	}
+	.cpanel-modules .list-group-item a:hover:not(.btn),
+	.table tbody a:hover:not(.badge):not(.btn):not(.dropdown-item) {
 		color: var(--template-bg-light);
 	}
 
@@ -371,21 +384,92 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	.cpanel-modules h2,
 	.cpanel-modules h3,
 	.com_cpanel .card-header,
-	.cpanel .card-header h3 {
+	.cpanel .card-header h3,
+	.card-body p {
 		color: var(--template-text-light);
 	}
 
-	.quick-icons .quickicon-linkadd {
-		background: var(--quickicon-linkadd-bg);
+	.calendar-container,
+	.calendar-container table,
+	.cpanel-modules .card-header,
+	.subhead,
+	.js-stools-container-filters-visible {
+		background: var(--template-bg-dark-70)!important;
 	}
-
-	.quick-icons .quickicon a.danger,
-	.quick-icons .quickicon a.warning {
-		--bg-color: #f9c253;
+	.subhead .btn:not(.btn-action),
+	.com_postinstall h3,
+	.com_postinstall p,
+	.cpanel-modules h2,
+	.cpanel-modules h3,
+	.com_cpanel .card-header,
+	.cpanel .card-header h3,
+	.table thead th,
+	.table thead a,
+	joomla-tab-element h2,
+	joomla-tab-elemet h3,
+	joomla-tab-element p,
+	label,
+	/*.form-control,*/
+	.modal-title,
+	.joomla-dialog-header,
+	.calendar-head-row td,
+	.daynames td,
+	.field-calendar input,
+	.field-calendar .buttons-wrapper .btn,
+	.accordion-header .accordion-button,
+	joomla-tab>div[role=tablist]>button[role=tab]:not([aria-expanded=true]),
+	.btn-close,
+	.table>:not(caption)>*>*
+	/*.accordion .list-group-item*/ {
+		color: var(--template-text-light)!important;
 	}
-
-	.table>:not(caption)>*>* {
-		border-bottom-color: #555;
+	.field-calendar .buttons-wrapper .btn {
+		border-color: var(--template-text-light)!important;
+	}
+	.cpanel .module-actions button,
+	.dropdown-item {
+		color: var(--template-text-light)!important;
+	}
+	.dropdown-item:hover,
+	.dropdown-item:focus,
+	button.dropdown-item:hover,
+	button.dropdown-item:focus {
+		color: var(--dropdown-link-hover-color)!important;
+	}
+	.quick-icons {
+		background-color: #222d3d !important;
+	}
+	.quick-icons .quickicon-group,
+	.quick-icons .quickicon-single {
+		border-color: var(--gray-700)!important;
+	}
+	.quick-icons .quickicon {
+		--bg-color: var(--template-bg-dark-80) !important;
+	}
+	.quick-icons .quickicon a:not([id^='plg_quickicon']),
+	.quick-icons .quickicon a:not([id^='plg_quickicon']) .quickicon-icon>* {
+		color: var(--gray-400);
+	}
+	.quick-icons .quickicon a:hover:not([id^='plg_quickicon']),
+	.quick-icons .quickicon a:hover:not([id^='plg_quickicon']) .quickicon-icon>* {
+		color: var(--white);
+	}
+	.quick-icons .quickicon-linkadd a:active,
+	.quick-icons .quickicon-linkadd a:focus,
+	.quick-icons .quickicon-linkadd a:hover {
+		background: var(--template-bg-dark-60)!important;
+	}
+	.table>:not(caption)>*>*,
+	.list-group-item {
+		border-bottom-color: var(--gray-600);
+	}
+	.sample-data__title,
+	.sample-data__desc,
+	.table tbody td {
+		color: var(--gray-500)!important;
+	}
+	.form-check-input {
+		border: 1px solid var(--gray-500);
 	}
 
 
@@ -404,7 +488,7 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	.com_gsd .well.nr-well,
 	.com_gsd #tabTabs,
 	.com_gsd joomla-tab>div[role=tablist] {
-		background: var(--template-quickicon-bg) !important;
+		background: var(--card-body-bg) !important;
 	}
 	.com_convertforms .nr-icons a span,
 	.com_gsd .nr-main-header,
