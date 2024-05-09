@@ -295,13 +295,14 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
  * - delete or comment out to use Joomla native darkmode styling
  *
  */
- @media (prefers-color-scheme: light), (data-bs-theme:light) {
+/* @media (prefers-color-scheme=light) {*/
  /*@media (prefers-color-scheme: light), (data-color-scheme="light"), (data-bs-theme="light"), (prefers-color-scheme: normal) {*/
-/*[data-bs-theme=light] {*/
+[data-color-scheme="light"] {
 
 	.cpanel-modules .card-header {
 		background: var(--light);
 	}
+
 	.table>:not(caption)>*>* {
 		border-bottom-color: #eaeaea;
 	}
@@ -312,8 +313,8 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	/* change scary danger/red notifications to less scary warning/orange */
 	.quick-icons .quickicon a.danger,
 	.quick-icons .quickicon a.warning {
-		--text-color: var(--warning);
-		--bg-color: #f6ca71;
+		--text-color: #ff9900;;
+		--bg-color: #fde6b9;
 	}
 	.table thead th,
 	.table tbody th {
@@ -337,8 +338,9 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
  * - delete or comment out to use Joomla native darkmode styling
  *
  */
-@media (prefers-color-scheme: dark) {
+/*@media (prefers-color-scheme=dark) {*/
 /*@media (prefers-color-scheme: dark), (data-color-scheme="dark"), (data-bs-theme="dark") {*/
+[data-color-scheme="dark"] {
 
 	:root {
 		--darkblue-bg: #243142;
@@ -358,12 +360,24 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	a {
 		color: var(--template-bg-light);
 	}
+
 	.cpanel-modules .list-group-item a:not(.btn),
 	.table tbody a:not(.badge):not(.btn):not(.dropdown-item) {
 		color: #4d90e4;
 	}
 	.cpanel-modules .list-group-item a:hover:not(.btn),
 	.table tbody a:hover:not(.badge):not(.btn):not(.dropdown-item) {
+		color: var(--template-bg-light)!important;
+	}
+
+	.cpanel-modules .card-header {
+	background: var(--darkblue-bg);
+	}
+
+	.cpanel-modules h2,
+	.cpanel-modules h3,
+	.com_cpanel .card-header,
+	.cpanel .card-header h3 {
 		color: var(--template-bg-light);
 	}
 
@@ -436,6 +450,16 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	button.dropdown-item:focus {
 		color: var(--dropdown-link-hover-color)!important;
 	}
+
+	/* change scary danger/red notifications to less scary warning/orange */
+	.quick-icons .quickicon a.danger,
+	.quick-icons .quickicon a.warning {
+		--bg-color: var(--warning);
+	}
+	.quick-icons .quickicon:hover a.danger,
+	.quick-icons .quickicon:hover a.warning {
+		--bg-color-hvr: #f79f22 !important;
+	}
 	.quick-icons {
 		background-color: #222d3d !important;
 	}
@@ -452,7 +476,7 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	}
 	.quick-icons .quickicon a:hover:not([id^='plg_quickicon']),
 	.quick-icons .quickicon a:hover:not([id^='plg_quickicon']) .quickicon-icon>* {
-		color: var(--white);
+		color: var(--white)!important;
 	}
 	.quick-icons .quickicon-linkadd a:active,
 	.quick-icons .quickicon-linkadd a:focus,
