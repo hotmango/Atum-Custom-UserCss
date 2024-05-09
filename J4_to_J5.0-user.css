@@ -306,10 +306,12 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	a {
 		color: var(--template-bg-light);
 	}
+
 	.content .card,
 	.cpanel-modules .card,
 	.list-group-item,
-	.table>:not(caption)>*>* {
+	.table>:not(caption)>*>*,
+	joomla-tab-element {
 		background: #222d3d !important;
 	}
 	.content .card,
@@ -320,14 +322,37 @@ table tr td:has([data-item-task$='.publish']) +th +td +td +td +td +td + td a
 	.cpanel-modules .card:hover {
 		border: 1px solid var(--gray-600);
 	}
-	.cpanel-modules .card-header {
-		background: var(--template-bg-dark-70);
+	.calendar-container,
+	.calendar-container table,
+	.cpanel-modules .card-header,
+	.subhead,
+	.js-stools-container-filters-visible {
+		background: var(--template-bg-dark-70)!important;
 	}
+	.com_postinstall h3,
+	.com_postinstall p,
 	.cpanel-modules h2,
 	.cpanel-modules h3,
 	.com_cpanel .card-header,
-	.cpanel .card-header h3 {
-		color: var(--template-text-light);
+	.cpanel .card-header h3,
+	.table thead th,
+	.table thead a,
+	joomla-tab-element h2,
+	joomla-tab-elemet h3,
+	joomla-tab-element p,
+	label,
+	.form-control,
+	.modal-title,
+	.calendar-head-row td,
+	.daynames td,
+	.field-calendar input,
+	.field-calendar .buttons-wrapper .btn,
+	.accordion-header .accordion-button,
+	.accordion .list-group-item {
+		color: var(--template-text-light)!important;
+	}
+	.field-calendar .buttons-wrapper .btn {
+		border-color: var(--template-text-light)!important;
 	}
 	.cpanel .module-actions button,
 	.dropdown-item {
